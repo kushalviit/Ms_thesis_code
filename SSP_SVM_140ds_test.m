@@ -1,0 +1,14 @@
+clear;
+clc;
+addpath('C:\Users\KUSHAL\Documents\MATLAB\Thesis\libsvm-3.20\matlab');
+load('C:\Users\KUSHAL\Documents\MATLAB\ssp\ssp_svm_140ds_test.mat');
+load('C:\Users\KUSHAL\Documents\MATLAB\Thesis\SSP_SVM_140ds.mat');
+%labx=ones(70,1);
+laby=zeros(70,1);
+%xtes=testdata1;
+ytes=testdata2;
+%label=vertcat(labx,laby);
+%data=vertcat(xtes,ytes);
+tic;
+[predictedLabelx, accuracyx, decisValueWinnerx] = svmpredict(laby,ytes, model, '-b 1');
+toc;

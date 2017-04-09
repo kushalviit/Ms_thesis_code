@@ -1,0 +1,21 @@
+clear;
+clc;
+
+for i=1:14
+fn=strcat('dat',int2str(i));
+load(fullfile('C:\Users\kushal\Documents\MATLAB\ssp\newscan1\difsnr\',fn,'fea.mat'));
+if i==1
+xcat=x;
+ycat=y;
+else
+ xcat=vertcat(xcat,x);
+ ycat=vertcat(ycat,y);
+end
+end
+m=size(xcat,1);
+p=randperm(size(xcat,1));
+px=xcat(p,:);
+py=ycat(p,:);
+px=horzcat(ones(m,1),px);
+py=horzcat(zeros(m,1),py);
+xtest=px(ciel(m/2),:);
